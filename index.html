@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Smart AI-Powered Trivia Game with Category Picker, Score Tracker, Dark Mode, and Audio Feedback." />
+  <title>🧠 Smart AI Trivia Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <header class="header">
+        <h1>🧠 Smart Quiz</h1>
+        <label class="toggle-switch">
+          <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()" />
+          <span class="slider"></span>
+          <span class="toggle-label">🌙 Dark Mode</span>
+        </label>
+      </header>
+
+      <section class="controls">
+        <select id="category"></select>
+        <select id="difficulty">
+          <option value="">Any Difficulty</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <select id="type">
+          <option value="">Any Type</option>
+          <option value="multiple">Multiple Choice</option>
+          <option value="boolean">True / False</option>
+        </select>
+        <div class="buttons">
+          <button onclick="loadQuestion()">🎲 New Question</button>
+          <button onclick="resetScore()">🔄 Reset Score</button>
+        </div>
+      </section>
+
+      <section class="quiz">
+        <h2 id="question" class="question">Loading question...</h2>
+        <div id="choices" class="choices"></div>
+        <div id="output" class="output"></div>
+        <p id="score" class="score"></p>
+        <progress id="progress" value="0" max="10"></progress>
+      </section>
+    </section>
+  </main>
+
+  <!-- Audio -->
+  <audio id="correctSound" src="correct.mp3" preload="auto"></audio>
+  <audio id="wrongSound" src="wrong.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
